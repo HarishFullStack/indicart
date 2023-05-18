@@ -1,0 +1,19 @@
+.category-container{
+    display: flex;
+  }
+  
+.category-card{
+    width: 30rem;
+    margin: 5rem;
+  }
+
+.home-banner{
+  background-image: url("https://res.cloudinary.com/dkkmc7pub/image/upload/v1684426513/indicart/books_piv1ml.jpg");
+  height: 10rem;
+}
+
+.banner-text{
+  text-align: center;
+  margin: 2rem;
+  text-decoration: underline;
+}
