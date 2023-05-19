@@ -3,10 +3,10 @@ import {Routes, Route, NavLink, useNavigate} from "react-router-dom";
 
 import Mockman from "mockman-js";
 import {Home} from "./pages/Home/Home";
-import {Products} from "./pages/Products";
-import {Product} from "./pages/Product";
-import {Cart} from "./pages/Cart";
-import {Wishlist} from "./pages/Wishlist";
+import {Products} from "./pages/Products/Products";
+import {Product} from "./pages/Product/Product";
+import {Cart} from "./pages/Cart/Cart";
+import {Wishlist} from "./pages/Wishlist/Wishlist";
 import {Login} from "./pages/Login/Login";
 import {SignUp} from "./pages/SignUp/SignUp";
 
@@ -25,8 +25,15 @@ function App() {
               <li className="nav-item">
                 <NavLink to="/products" className="nav-link active"><b>Explore</b></NavLink>
               </li>
-            </ul>
               <button className="btn btn-primary" type="submit" onClick={() => navigate("/login")}>Login</button>
+              <li className="nav-item">
+                <NavLink to="/wishlist" className="nav-link active"><b>Wishlist</b></NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/cart" className="nav-link active"><b>Cart</b></NavLink>
+              </li>
+              </ul>
+
           </div>
         </div>
       </nav>

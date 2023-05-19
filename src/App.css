@@ -1,5 +1,5 @@
 .App {
-  font-family: Roboto,Arial,sans-serif; /* Roboto,Arial,sans-serif; */
+  font-family: 'circular'; /* Roboto,Arial,sans-serif; /* Roboto,Arial,sans-serif; */
 }
 
 .App-logo {
@@ -56,29 +56,7 @@
 
 
 
-.product-container{
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  grid-gap: 1.5rem;
-  gap: 1.5rem;
-  padding: 1rem;
-}
 
-.product-card{
-  width: 100%;
-  max-width: 15rem;
-  align-self: stretch;
-  justify-self: center;
-  text-align: center;
-  cursor: pointer;
-}
-
-.card-body{
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
 
 .slider{
   width: 100%;
@@ -111,8 +89,4 @@
   align-items: center;
   justify-content: center;
   margin-top: 10rem;
-}
-
-.btn{
-  margin-top: 10px;
 }

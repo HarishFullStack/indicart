@@ -6,7 +6,7 @@ export function SignUp(){
         <div className="signup-container">
             <div className="card signup-card">
                 <div className="card-body">
-                    <div><h3 className="font-bold">Sign Up</h3></div>
+                    <div className="sign-up-header"><h3 className="font-bold">Sign Up</h3></div>
                     <div className="input-container p-2">
                         <label for="name">Name</label>
                         <input type="text" className="text-input"  id="name"/>

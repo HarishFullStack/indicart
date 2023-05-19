@@ -38,3 +38,11 @@
   label{
     text-align: left;
   }
+
+  .btn-login-guest{
+    margin-top: 20px;
+  }
+
+  .sign-in-header{
+    text-align: center;
+  }

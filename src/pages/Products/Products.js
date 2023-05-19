@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+import "./Products.css";
+
 export function Products(){
     const {category} = useParams();
     const navigate = useNavigate();
@@ -23,8 +25,8 @@ export function Products(){
     },[])
 
     return (<div style={{display: "inline-flex", width: "100%"}}>
-        <div style={{width:"20%", borderRight: "3px solid black", padding: "20px"}}>
-            <div className="p-2"><p className="font-bold">Filters</p></div>
+        <div style={{width:"15%", borderRight: "3px solid black", padding: "20px", height:"auto"}}>
+            <div className="p-2" style={{display: "inline-flex"}}><p className="font-bold">Filters</p><p style={{textAlign:"right"}}>CLEAR</p></div>
             <div className="p-2">
                 <div><p className="font-bold">Price</p></div>
                 <div className="slider-label">
@@ -62,19 +64,24 @@ export function Products(){
                 </div>
             </div>
         </div>
-        <div style={{width:"80%", padding: "20px"}}>
+        <div style={{width:"85%", padding: "20px"}}>
             <p className="font-bold">Showing All Products</p>
             <div className="product-container" style={{display: "grid"}}>{ products.map((product) => {
-                return (<div className="card product-card" key={product._id} onClick={() => {navigate(`/product/${product._id}`)}}>
+                return (<div className="card product-card" key={product._id}>
+                            <img src={product.img} class="card-img-top product-img" alt={product.title} onClick={() => {navigate(`/product/${product._id}`)}}></img>
                             <div className="card-body">
-                                <h6>{product.title}</h6>
-                                <b>{product.price}</b>
-                                <button className="btn btn-primary">Add To Cart</button>
+                                <div className="product-title">{product.title}</div>
+                                <div className="product-price-container">
+                                    <p className="product-price">&#x20b9;{product.price}</p>
+                                    <p className="original-price">&#x20b9;{product.mrp}</p>
+                                    <p className="product-discount">{Math.round(((product.mrp-product.price)/product.mrp)*100)}% OFF</p>
+
+                                </div>
+                                <div className="product-footer"><button className="btn btn-primary"><i className="fas fa-shopping-cart"></i> <b>Add To Cart</b></button></div>
                             </div>
                         </div>)
-            })
-                
-                }</div>
+                })
+            }</div>
         </div>
     </div>)
 }
