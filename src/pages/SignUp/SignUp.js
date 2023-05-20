@@ -8,19 +8,19 @@ export function SignUp(){
                 <div className="card-body">
                     <div className="sign-up-header"><h3 className="font-bold">Sign Up</h3></div>
                     <div className="input-container p-2">
-                        <label for="name">Name</label>
+                        <label htmlFor="name">Name</label>
                         <input type="text" className="text-input"  id="name"/>
                     </div>
                     <div className="input-container p-2">
-                        <label for="email">Email</label>
+                        <label htmlFor="email">Email</label>
                         <input type="text" className="text-input"  id="email"/>
                     </div>
                     <div className="input-container p-2">
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         <input type="password" className="text-input" id="password"/>
                     </div>
                     <div className="input-container p-2">
-                        <label for="confirm-password">Confirm Password</label>
+                        <label htmlFor="confirm-password">Confirm Password</label>
                         <input type="password" className="text-input" id="confirm-password"/>
                     </div>
                     <div className="input-container p-2">

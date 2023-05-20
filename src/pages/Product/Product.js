@@ -9,7 +9,6 @@ export function Product(){
     const [product, setProduct] = useState();
 
     const getProductDetails = async () => {
-        console.log(`id: ${id}`)
         const response = await fetch(`/api/products/${id}`);
         const res = await response.json();
         setProduct(res.product);
@@ -23,7 +22,7 @@ export function Product(){
                 <div className="card mb-3 p-3 single-product-card">
                     <div className="row g-0">
                         <div className="col-md-4">
-                            <img src={product.img} class="img-fluid rounded-start" alt={product.title}/>
+                            <img src={product.img} className="img-fluid rounded-start" alt={product.title}/>
                         </div>
                         <div className="single-product-content col-md-8">
                             <div className="card-body">

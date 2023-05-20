@@ -9,9 +9,14 @@ import {Cart} from "./pages/Cart/Cart";
 import {Wishlist} from "./pages/Wishlist/Wishlist";
 import {Login} from "./pages/Login/Login";
 import {SignUp} from "./pages/SignUp/SignUp";
+import { useContext, useState } from "react";
+import { IndicartContext } from "./context/IndicartContext";
+import { Profile } from "./pages/Profile/profile";
 
 function App() {
   const navigate = useNavigate();
+  const {isLoggedIn, setIsLoggedIn, cartCount, wishlistCount} = useContext(IndicartContext);
+
   return (
     <div className="App">
       <nav className="navbar navbar-expand-lg shadow">
@@ -25,13 +30,22 @@ function App() {
               <li className="nav-item">
                 <NavLink to="/products" className="nav-link active"><b>Explore</b></NavLink>
               </li>
-              <button className="btn btn-primary" type="submit" onClick={() => navigate("/login")}>Login</button>
-              <li className="nav-item">
-                <NavLink to="/wishlist" className="nav-link active"><b>Wishlist</b></NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/cart" className="nav-link active"><b>Cart</b></NavLink>
-              </li>
+              {!isLoggedIn && <button className="btn btn-primary" type="submit" onClick={() => navigate("/login")}>Login</button>}
+              {isLoggedIn && <li className="nav-item">
+                <NavLink to="/profile/details" className="nav-link active"><i className="fa fa-user fa-2x" aria-hidden="true" size="lg"></i></NavLink>
+              </li>}
+              {isLoggedIn && <li className="nav-item">
+                <NavLink to="/wishlist" className="nav-link active"><i className="fa fa-heart fa-2x" aria-hidden="true" size="lg"></i>
+                  {wishlistCount > 0  && <span className="position-absolute translate-middle badge rounded-pill bg-danger">{wishlistCount}</span>}
+                </NavLink>
+              </li>}
+              
+              {isLoggedIn && <li className="nav-item">
+                <NavLink to="/cart" className="nav-link active position-relative"><i className="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+                  {cartCount > 0  && <span className="position-absolute translate-middle badge rounded-pill bg-danger">{cartCount}</span>}
+                </NavLink>
+                
+              </li>}
               </ul>
 
           </div>
@@ -47,6 +61,7 @@ function App() {
         <Route path="/wishlist" element={<Wishlist/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<SignUp/>}></Route>
+        <Route path="/profile/details" element={<Profile/>}/>
         <Route path="/mockman" element={<Mockman/>}/>
       </Routes>
     </div>

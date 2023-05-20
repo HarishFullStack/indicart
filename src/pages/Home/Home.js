@@ -29,7 +29,7 @@ export function Home(){
                 {categories.map(category => {
                     return (
                         <div className="card category-card cursor-pointer shadow p-3 mb-5 bg-body rounded" key={category._id} onClick={() => navigate(`/products/${category.categoryName}`)}>
-                            <img class="card-img-top" src={category.img} alt={category.categoryName}/>
+                            <img className="card-img-top" src={category.img} alt={category.categoryName}/>
                             <div className="card-body">
                                 <h2>{category.categoryName}</h2>
                                 <p>{category.description}</p>
