@@ -2,12 +2,14 @@ import { useNavigate } from "react-router-dom";
 import { WishlistContext } from "../../context/WishlistContext";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Wishlist(){
 
     const navigate = useNavigate();
 
-    const {cart, addToCart} = useContext(CartContext);
+    const {addToCart} = useContext(CartContext);
     const {wishlist, removeFromWishlist} = useContext(WishlistContext);
 
     const handleAddToCart = async (product) => {
@@ -17,9 +19,8 @@ export function Wishlist(){
                 body: JSON.stringify(product),
                 headers: {"authorization": localStorage.getItem("encodedToken")}
             })
-
-            const res = await response.json();
             addToCart(product);
+            toast.success('Added to Cart', {position: toast.POSITION.BOTTOM_RIGHT});
         } catch(error){
             console.log(error);
         }
@@ -32,8 +33,8 @@ export function Wishlist(){
                 headers: {"authorization": localStorage.getItem("encodedToken")}
             })
 
-            const res = await response.json();
             removeFromWishlist(id);
+            toast.warning('Removed from Wishlist', {position: toast.POSITION.BOTTOM_RIGHT});
         } catch(error){
             console.log(error);
         }

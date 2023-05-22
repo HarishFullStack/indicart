@@ -5,15 +5,18 @@ import "./Products.css";
 import { ProductsContext } from "../../context/ProductsContext";
 import { CartContext } from "../../context/CartContext";
 import { WishlistContext } from "../../context/WishlistContext";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Products(){
     const {category} = useParams();
     const navigate = useNavigate();
-
-    const {cart, setCartCount, addToCart} = useContext(CartContext);
-    const {wishlist, setWishlistCount, addToWishlist, removeFromWishlist} = useContext(WishlistContext);
+    const [isLoading, setIsLoading] = useState(false);
+    const {cart, addToCart} = useContext(CartContext);
+    const {wishlist, addToWishlist, removeFromWishlist} = useContext(WishlistContext);
     const {state, dispatch, products, setProducts} = useContext(ProductsContext);
     const categories = useRef(false);
+
 
     //const [products, setProducts] = useState([]);
 
@@ -30,12 +33,15 @@ export function Products(){
                 dispatch({type: "CATEGORIES", checked: true, value: category});
                 document.getElementById(`category-${category}`).checked = true;
             }
+            setIsLoading(false);
         } catch(error) {
             console.log(error);
+            setIsLoading(false);
         }
     }
 
     useEffect(() => {
+        setIsLoading(true);
         getProducts();
     },[])
 
@@ -49,6 +55,7 @@ export function Products(){
 
             const res = await response.json();
             addToCart(product);
+            toast.success('Added To Cart', {position: toast.POSITION.BOTTOM_RIGHT});
         } catch(error){
             console.log(error);
         }
@@ -64,6 +71,7 @@ export function Products(){
 
             const res = await response.json();
             addToWishlist(product);
+            toast.success('Added To Wishlist', {position: toast.POSITION.BOTTOM_RIGHT});
         } catch(error){
             console.log(error);
         }
@@ -78,6 +86,7 @@ export function Products(){
 
             const res = await response.json();
             removeFromWishlist(id);
+            toast.warning('Removed From Wishlist', {position: toast.POSITION.BOTTOM_RIGHT});
         } catch(error){
             console.log(error);
         }
@@ -97,7 +106,13 @@ export function Products(){
         document.getElementById("high-to-low").checked = false;
     }
 
-    return (<div style={{display: "inline-flex", width: "100%"}}>
+    return (
+    <>
+    {isLoading && <div className="spinner-container">
+        <div className="loading-spinner">
+        </div>
+    </div>}
+    {!isLoading && <div style={{display: "inline-flex", width: "100%"}}>
         <div style={{width:"15%", borderRight: "3px solid black", padding: "20px", height:"auto"}}>
             <div className="p-2 d-flex ">
                 <p className="font-bold ">Filters</p>
@@ -166,5 +181,6 @@ export function Products(){
                 })
             }</div>
         </div>
-    </div>)
+    </div>}</>)
+    
 }

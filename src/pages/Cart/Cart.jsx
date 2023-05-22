@@ -2,6 +2,8 @@ import { useContext } from "react";
 import "./Cart.css";
 import { CartContext } from "../../context/CartContext";
 import { WishlistContext } from "../../context/WishlistContext";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Cart(){
     
@@ -17,6 +19,7 @@ export function Cart(){
 
             const res = await response.json();
             removeFromCart(id);
+            toast.warning('Removed from Cart', {position: toast.POSITION.BOTTOM_RIGHT});
         } catch(error){
             console.log(error);
         }
@@ -32,6 +35,7 @@ export function Cart(){
 
             const res = await response.json();
             addToWishlist(product);
+            toast.success('Added to Wishlist', {position: toast.POSITION.BOTTOM_RIGHT});
         } catch(error){
             console.log(error);
         }
@@ -46,6 +50,8 @@ export function Cart(){
 
             const res = await response.json();
             removeFromWishlist(id);
+            toast.warning('Removed from Wishlist', {position: toast.POSITION.BOTTOM_RIGHT});
+
         } catch(error){
             console.log(error);
         }

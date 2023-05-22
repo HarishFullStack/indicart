@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { ProductsContext } from "../../context/ProductsContext";
 import { useNavigate } from "react-router";
 
 import "./Profile.css";
