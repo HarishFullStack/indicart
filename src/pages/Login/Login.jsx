@@ -14,12 +14,12 @@ export function Login(){
 
     const handleLogin = async (email, password) => {
         const creds = {email, password};
-
+        console.log("CREDS", creds);
         const response = await fetch("/api/auth/login", {
             method: "POST",
             body: JSON.stringify(creds)
         });
-
+        console.log(response);
         const res = await response.json();
         localStorage.setItem("encodedToken", res.encodedToken);
         localStorage.setItem("user", res.foundUser);
