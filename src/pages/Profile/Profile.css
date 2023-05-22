@@ -1,0 +1,22 @@
+.profile-card{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.profile-card-nav{
+    width: 40%;
+}
+
+.profile-card-content{
+    display: inline-block;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid #dee2e6;
+    width: 40%;
+    border-top: none;
+    padding: 2rem;
+}

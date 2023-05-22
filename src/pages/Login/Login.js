@@ -1,24 +1,19 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useContext, useState } from "react";
-import { IndicartContext } from "../../context/IndicartContext";
+import { ProductsContext } from "../../context/ProductsContext";
+import { AuthContext } from "../../context/AuthContext";
 
 export function Login(){
 
     const navigate = useNavigate();
-    const {setIsLoggedIn, setUser} = useContext(IndicartContext);
+    const {setIsLoggedIn, setUser} = useContext(AuthContext);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLoginAsGuest = async () => {
-        setEmail("adarshbalika@gmail.com");
-        setPassword("adarshbalika");
-        await login();
-    }
-
-    const login = async () => {
-        const creds = {email: "adarshbalika@gmail.com", password: "adarshbalika"};
+    const handleLogin = async (email, password) => {
+        const creds = {email, password};
 
         const response = await fetch("/api/auth/login", {
             method: "POST",
@@ -27,10 +22,11 @@ export function Login(){
 
         const res = await response.json();
         localStorage.setItem("encodedToken", res.encodedToken);
-        console.log(res);
+        localStorage.setItem("user", res.foundUser);
+
         setIsLoggedIn(true);
         setUser(res.foundUser);
-        
+        console.log(res.foundUser)
         navigate("/");
     }
 
@@ -41,15 +37,15 @@ export function Login(){
                     <div className="sign-in-header"><h3 className="font-bold">Sign In</h3></div>
                     <div className="input-container p-2">
                         <label htmlFor="email">Email Address</label>
-                        <input type="text" className="text-input"  id="email" value={email}/>
+                        <input type="text" className="text-input"  id="email" onChange={(event) => setEmail(event.target.value)}/>
                     </div>
                     <div className="input-container p-2">
                         <label htmlFor="password">Password</label>
-                        <input type="password" className="text-input" id="password"  value={password}/>
+                        <input type="password" className="text-input" id="password" onChange={(event) => setPassword(event.target.value)}/>
                     </div>
                     <div className="input-container p-2">
-                        <button className="btn btn-primary">Login</button>
-                        <button className="btn btn-primary btn-login-guest" onClick={() => handleLoginAsGuest()}>Login as Guest</button>
+                        <button className="btn btn-primary" disabled={email === "" || password === "" } onClick={() => handleLogin(email, password)}>Login</button>
+                        <button className="btn btn-primary btn-login-guest" onClick={() => handleLogin("adarshbalika@gmail.com", "adarshbalika")}>Login as Guest</button>
                     </div>
                     <div className="p-2">
                         <label>Don't have an account?</label> <NavLink to="/signup">sign up</NavLink>

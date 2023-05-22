@@ -90,3 +90,12 @@
   justify-content: center;
   margin-top: 10rem;
 }
+
+.search-box{
+  min-width: 40%;
+}
+
+.navbar-collapse{
+  max-width: fit-content;
+}
+

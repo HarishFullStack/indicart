@@ -1,5 +1,5 @@
 import "./App.css";
-import {Routes, Route, NavLink, useNavigate} from "react-router-dom";
+import {Routes, Route, NavLink, useNavigate, useLocation} from "react-router-dom";
 
 import Mockman from "mockman-js";
 import {Home} from "./pages/Home/Home";
@@ -9,13 +9,25 @@ import {Cart} from "./pages/Cart/Cart";
 import {Wishlist} from "./pages/Wishlist/Wishlist";
 import {Login} from "./pages/Login/Login";
 import {SignUp} from "./pages/SignUp/SignUp";
-import { useContext, useState } from "react";
-import { IndicartContext } from "./context/IndicartContext";
+import { useContext, useEffect, useState } from "react";
+import { ProductsContext } from "./context/ProductsContext";
 import { Profile } from "./pages/Profile/profile";
+import { WishlistContext } from "./context/WishlistContext";
+import { CartContext } from "./context/CartContext";
+import { AuthContext } from "./context/AuthContext";
 
 function App() {
   const navigate = useNavigate();
-  const {isLoggedIn, setIsLoggedIn, cartCount, wishlistCount} = useContext(IndicartContext);
+  const {state, dispatch} = useContext(ProductsContext);
+  const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext);
+  const {cartCount} = useContext(CartContext);
+  const {wishlistCount} = useContext(WishlistContext);
+
+  const location = useLocation();
+
+  // useEffect = () => {
+  //   dispatch({type: "CLEAR"});
+  // }
 
   return (
     <div className="App">
@@ -25,6 +37,7 @@ function App() {
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
+          {location.pathname.includes("products") && <div className="search-box"><input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={(event) => dispatch({ type: "SEARCH", value: event.target.value})}/></div>}
           <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul className="nav ">
               <li className="nav-item">

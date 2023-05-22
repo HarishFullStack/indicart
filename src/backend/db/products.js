@@ -14,6 +14,7 @@ export const products = [
     mrp: "7000",
     categoryName: "non-fiction",
     reviews: "2900",
+    averageRatings: "4",
     availability: "In Stock",
     deliveryIn: "9",
     description:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
@@ -27,6 +28,7 @@ export const products = [
     mrp: "1050",
     categoryName: "fiction",
     reviews: "589",
+    averageRatings: "2",
     availability: "In Stock",
     deliveryIn: "9",
     description:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
@@ -41,8 +43,9 @@ export const products = [
     mrp: "150",
     categoryName: "fiction",
     reviews: "258",
+    averageRatings: "4",
     availability: "In Stock",
-    deliveryIn: "9",
+    deliveryIn: "1",
     description:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
   },
   {
@@ -54,6 +57,7 @@ export const products = [
     mrp: "425",
     categoryName: "fiction",
     reviews: "516",
+    averageRatings: "4",
     availability: "In Stock",
     deliveryIn: "9",
     description:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
@@ -67,6 +71,7 @@ export const products = [
     mrp: "550",
     categoryName: "fiction",
     reviews: "1140",
+    averageRatings: "4",
     availability: "In Stock",
     deliveryIn: "9",
     description:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
@@ -80,6 +85,7 @@ export const products = [
     mrp: "6500",
     categoryName: "non-fiction",
     reviews: "854",
+    averageRatings: "3",
     availability: "In Stock",
     deliveryIn: "9",
     description:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
@@ -93,6 +99,7 @@ export const products = [
     mrp: "550",
     categoryName: "non-fiction",
     reviews: "457",
+    averageRatings: "5",
     availability: "In Stock",
     deliveryIn: "9",
     description:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
@@ -107,6 +114,7 @@ export const products = [
     mrp: "500",
     categoryName: "non-fiction",
     reviews: "741",
+    averageRatings: "2",
     availability: "In Stock",
     deliveryIn: "9",
     description:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
@@ -121,6 +129,7 @@ export const products = [
     mrp: "150",
     categoryName: "non-fiction",
     reviews: "200",
+    averageRatings: "3",
     availability: "In Stock",
     deliveryIn: "9",
     description:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
@@ -135,6 +144,7 @@ export const products = [
     mrp: "150",
     categoryName: "horror",
     reviews: "481",
+    averageRatings: "4",
     availability: "In Stock",
     deliveryIn: "9",
     description:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
@@ -149,8 +159,9 @@ export const products = [
     mrp: "1400",
     categoryName: "horror",
     reviews: "525",
+    averageRatings: "4",
     availability: "In Stock",
-    deliveryIn: "9",
+    deliveryIn: "2",
     description:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
 
   },
@@ -163,8 +174,9 @@ export const products = [
     mrp: "225",
     categoryName: "horror",
     reviews: "412",
+    averageRatings: "4",
     availability: "In Stock",
-    deliveryIn: "9",
+    deliveryIn: "1",
     description:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
 
   },
@@ -177,8 +189,9 @@ export const products = [
     mrp: "400",
     categoryName: "horror",
     reviews: "266",
+    averageRatings: "4",
     availability: "In Stock",
-    deliveryIn: "9",
+    deliveryIn: "3",
     description:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
 
   },
@@ -191,6 +204,7 @@ export const products = [
     mrp: "275",
     categoryName: "horror",
     reviews: "778",
+    averageRatings: "1",
     availability: "In Stock",
     deliveryIn: "9",
     description:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."

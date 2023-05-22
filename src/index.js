@@ -4,26 +4,29 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
-import { IndicartContext, IndicartProvider } from "./context/IndicartContext";
+import { ProductsContext, ProductsProvider } from "./context/ProductsContext";
 import { CartProvider, CartContext } from "./context/CartContext";
 import { WishlistProvider, WishlistContext } from "./context/WishlistContext";
+import { AuthProvider, AuthContext } from "./context/AuthContext";
 
 // Call make Server
 makeServer();
 
-export {IndicartContext, CartContext, WishlistContext};
+export {AuthContext, ProductsContext, CartContext, WishlistContext};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <IndicartProvider>
-      <CartProvider>
-        <WishlistProvider>
-          <Router>
-            <App />
-          </Router>
-        </WishlistProvider>
-      </CartProvider>
-    </IndicartProvider>
+    <AuthProvider>
+      <ProductsProvider>
+        <CartProvider>
+          <WishlistProvider>
+            <Router>
+              <App />
+            </Router>
+          </WishlistProvider>
+        </CartProvider>
+      </ProductsProvider>
+    </AuthProvider>
   </React.StrictMode>,
 );
