@@ -24,7 +24,6 @@ export function SignUp() {
         });
 
         const res = await response.json();
-        console.log(res.createdUser);
         localStorage.setItem("encodedToken", res.encodedToken);
         localStorage.setItem("user", res.createdUser);
 

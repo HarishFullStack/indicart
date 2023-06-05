@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Header } from "./component/Header";
 import { Address } from "./pages/Address/Address";
 import { Checkout } from "./pages/Checkout/Checkout";
+import { RequiresAuth } from "./component/RequiresAuth";
 
 function App() {
   return (
@@ -27,13 +28,13 @@ function App() {
         <Route path="/products" element={<Products/>}></Route>
         <Route path="/products/:category" element={<Products/>}></Route>
         <Route path="/product/:id" element={<Product/>}></Route>
-        <Route path="/cart" element={<Cart/>}></Route>
-        <Route path="/wishlist" element={<Wishlist/>}></Route>
+        <Route path="/cart" element={<RequiresAuth><Cart/></RequiresAuth>}></Route>
+        <Route path="/wishlist" element={<RequiresAuth><Wishlist/></RequiresAuth>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<SignUp/>}></Route>
-        <Route path="/profile/details" element={<Profile/>}/>
-        <Route path="/profile/address" element={<Address/>}/>
-        <Route path="/checkout" element={<Checkout/>}/>
+        <Route path="/profile/details" element={<RequiresAuth><Profile/></RequiresAuth>}/>
+        <Route path="/profile/address" element={<RequiresAuth><Address/></RequiresAuth>}/>
+        <Route path="/checkout" element={<RequiresAuth><Checkout/></RequiresAuth>}/>
         <Route path="/mockman" element={<Mockman/>}/>
       </Routes>
     </div>

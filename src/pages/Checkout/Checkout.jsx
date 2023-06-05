@@ -34,12 +34,16 @@ export function Checkout(){
                     {addresses.map((address) => {
                         return(
                             <div className="card">
-                                <div className="card-body d-inline">
-                                    <div className="col-md-1"><input type="radio" name="address" value={address.id} onChange={(event) => setAddressesSelected(event.target.value)}/></div>
-                                    <div className="col-md-9">
-                                    <h2 className="card-title">{address.name}</h2>
-                                    <p>{address.address}, {address.city}, {address.pincode}, {address.state}</p>
-                                    <p>Mobile: {address.mobile}</p></div>
+                                <div className="card-body">
+                                    <div className="individual-address">
+                                        <input type="radio" id={address.id} name="address" value={address.id} onChange={(event) => setAddressesSelected(event.target.value)}/>
+                                        <label htmlFor={address.id}>
+                                            <h2 className="card-title">{address.name}</h2>
+                                            <p><i>{address.address}, {address.city}, {address.pincode}, {address.state}</i></p>
+                                            <p>Mobile: {address.mobile}</p>
+                                        </label>
+                                    </div>
+                                    
                                 </div>
                                 
                             </div>
@@ -63,11 +67,11 @@ export function Checkout(){
                             })} */}
                             <div className="mngmt_cart-price-item">
                                 <p className="">Price: ({cart.reduce((acc, item) => acc + (item.quantity), 0)} items)</p>
-                                <p className="">₹ {price}</p>
+                                <p className="">₹ {price.toFixed(2)}</p>
                             </div>
                             <div className="mngmt_cart-price-item">
                                 <p className="">Discount: </p>
-                                <p className="">(-)₹ {discount}</p>
+                                <p className="">(-)₹ {discount.toFixed(2)}</p>
                             </div>
                             <div className="mngmt_cart-price-item">
                                 <p className="">Delivery Charges: </p>
@@ -77,9 +81,9 @@ export function Checkout(){
 
                            <div className="mngmt_cart-price-item">
                             <p className="font-wt-semibold">Total price:</p>
-                            <p className="font-wt-semibold">₹ {price-discount}</p>
+                            <p className="font-wt-semibold">₹ {(price-discount).toFixed(2)}</p>
                         </div>
-                        <button className="btn btn-primary background-primary brd-rd-semi-sq text-align-center" disabled={addressSelected === ""} onClick={() => navigate('/checkout')}>PLACE ORDER</button>
+                        <button className="btn btn-primary background-primary brd-rd-semi-sq text-align-center" disabled={addressSelected === ""}>PLACE ORDER</button>
                     </div>
                 </div>
             </div>

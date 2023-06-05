@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, json, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useContext, useState } from "react";
 import { ProductsContext } from "../../context/ProductsContext";
@@ -14,19 +14,16 @@ export function Login(){
 
     const handleLogin = async (email, password) => {
         const creds = {email, password};
-        console.log("CREDS", creds);
         const response = await fetch("/api/auth/login", {
             method: "POST",
             body: JSON.stringify(creds)
         });
-        console.log(response);
         const res = await response.json();
         localStorage.setItem("encodedToken", res.encodedToken);
-        localStorage.setItem("user", res.foundUser);
+        localStorage.setItem("user", JSON.stringify(res.foundUser));
 
         setIsLoggedIn(true);
         setUser(res.foundUser);
-        console.log(res.foundUser)
         navigate("/");
     }
 

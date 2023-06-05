@@ -10,7 +10,6 @@ export function CartProvider({children}){
     const addToCart = (product) => {
         if(cart.find((item) => item._id === product._id)){
             setCart(cart.map((item) => ({...item, quantity: item._id === product._id && item.quantity ? ++item.quantity : 1})))
-            console.log(cart.map((item) => ({...item, quantity: item._id === product._id && item.quantity ? ++item.quantity : 1})))
         } else {
             setCart([...cart, {...product, quantity: 1}]);
             setCartCount(cartCount + 1);

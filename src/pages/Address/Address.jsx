@@ -34,7 +34,6 @@ export function Address(){
                 return {...state, alternateMobile: action.value}
 
             case "STATE":
-                console.log(action.value)
                 return {...state, state: action.value === "select state" ? "" : action.value}
 
             case "CLEAR":
@@ -78,7 +77,6 @@ export function Address(){
 
     const handleShowAddress = () => {
         setShowAddressModal(true);
-        console.log(state.name === "" || state.mobile === "" || state.pincode === "" || state.city === "" || state.address === "" || state.state === "")
     }
 
     const handleAddAddress = () => {
@@ -102,11 +100,6 @@ export function Address(){
     const handleAddressEdit = (id) => {
         dispatch({type: "SETSTATE", value: addresses.find((x) => x.id === id)});
         setShowAddressModal(true);
-    }
-
-    const disableAddAddress = () => {
-        console.log(state.name)
-        return (state.name === "" || state.mobile === "" || state.pincode === "" || state.city === "" || state.address === "" || state.state === "");
     }
 
     return(

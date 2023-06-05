@@ -27,8 +27,8 @@ export function Profile(){
                 </li>
             </ul>
             <div className="profile-card-content">
-                <div><span className="text-xl text-grey d-inline">Name </span><span className="text-xl">{user.firstName} {user.lastName}</span></div>
-                <div><span className="text-xl text-grey d-inline">Email </span><span className="text-xl">{user.email}</span></div>
+                <div><span className="text-xl text-grey d-inline">Name: </span><span className="text-xl">{user.firstName} {user.lastName}</span></div>
+                <div><span className="text-xl text-grey d-inline">Email: </span><span className="text-xl">{user.email}</span></div>
             
                 <div><button className="btn btn-danger w-25 float-end" onClick={handleLogout}>Logout</button></div>
             </div>
