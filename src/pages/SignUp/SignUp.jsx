@@ -40,11 +40,11 @@ export function SignUp() {
                     <div className="sign-up-header"><h3 className="font-bold">Sign Up</h3></div>
                     <div className="input-container p-2">
                         <label htmlFor="name">Name</label>
-                        <input type="text" className="text-input"  id="name" onChange={(event) => setName(event.target.value)}/>
+                        <input type="text" className="form-control text-input"  id="name" onChange={(event) => setName(event.target.value)}/>
                     </div>
                     <div className="input-container p-2">
                         <label htmlFor="email">Email</label>
-                        <input type="text" className="text-input"  id="email" onChange={(event) => setEmail(event.target.value)}/>
+                        <input type="text" className="form-control text-input"  id="email" onChange={(event) => setEmail(event.target.value)}/>
                     </div>
                     <div className="input-container p-2">
                         <label htmlFor="password">Password</label>
@@ -55,7 +55,7 @@ export function SignUp() {
                     </div>
                     <div className="input-container p-2">
                         <label htmlFor="confirm-password">Confirm Password</label>
-                        <input type="password" className="text-input" id="confirm-password" onChange={(event) => setConfirmPassword(event.target.value)}/>
+                        <input type="password" className="form-control text-input" id="confirm-password" onChange={(event) => setConfirmPassword(event.target.value)}/>
                     </div>
                     <div className="input-container p-2">
                         <button className="btn btn-primary" disabled={ name ==="" || email === "" || password === "" || confirmPassword === "" || password !== confirmPassword } onClick={handleSignUpClick}>Create New Account</button>

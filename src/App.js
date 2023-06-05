@@ -9,22 +9,18 @@ import {Cart} from "./pages/Cart/Cart";
 import {Wishlist} from "./pages/Wishlist/Wishlist";
 import {Login} from "./pages/Login/Login";
 import {SignUp} from "./pages/SignUp/SignUp";
-import { useContext, useEffect, useState } from "react";
-import { ProductsContext } from "./context/ProductsContext";
 import { Profile } from "./pages/Profile/profile";
-import { WishlistContext } from "./context/WishlistContext";
-import { CartContext } from "./context/CartContext";
-import { AuthContext } from "./context/AuthContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Header } from "./component/Header";
+import { Address } from "./pages/Address/Address";
 
 function App() {
   return (
     <div className="App">
       <ToastContainer />
       <Header/>
-      
+
       <Routes>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/products" element={<Products/>}></Route>
@@ -35,6 +31,7 @@ function App() {
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<SignUp/>}></Route>
         <Route path="/profile/details" element={<Profile/>}/>
+        <Route path="/profile/address" element={<Address/>}/>
         <Route path="/mockman" element={<Mockman/>}/>
       </Routes>
     </div>

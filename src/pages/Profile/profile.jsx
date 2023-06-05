@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 
 import "./Profile.css";
 import { AuthContext } from "../../context/AuthContext";
+import { NavLink } from "react-router-dom";
 
 export function Profile(){
     const navigate = useNavigate();
@@ -19,10 +20,10 @@ export function Profile(){
         <div className="profile-card">
             <ul className="nav nav-tabs profile-card-nav">
                 <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">Profile Details</a>
+                    <NavLink className="nav-link active" to="/profile/details">Profile Details</NavLink>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Addresses</a>
+                    <NavLink className="nav-link" to="/profile/address">Addresses</NavLink>
                 </li>
             </ul>
             <div className="profile-card-content">

@@ -37,11 +37,11 @@ export function Login(){
                     <div className="sign-in-header"><h3 className="font-bold">Sign In</h3></div>
                     <div className="input-container p-2">
                         <label htmlFor="email">Email Address</label>
-                        <input type="text" className="text-input"  id="email" onChange={(event) => setEmail(event.target.value)}/>
+                        <input type="text" className="form-control text-input"  id="email" onChange={(event) => setEmail(event.target.value)}/>
                     </div>
                     <div className="input-container p-2">
                         <label htmlFor="password">Password</label>
-                        <input type="password" className="text-input" id="password" onChange={(event) => setPassword(event.target.value)}/>
+                        <input type="password" className="form-control text-input" id="password" onChange={(event) => setPassword(event.target.value)}/>
                     </div>
                     <div className="input-container p-2">
                         <button className="btn btn-primary" disabled={email === "" || password === "" } onClick={() => handleLogin(email, password)}>Login</button>
