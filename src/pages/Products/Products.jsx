@@ -113,7 +113,7 @@ export function Products(){
         </div>
     </div>}
     {!isLoading && <div style={{display: "inline-flex", width: "100%"}}>
-        <div style={{width:"15%", borderRight: "3px solid black", padding: "20px", height:"auto"}}>
+        <div style={{width:"15%", padding: "20px", height:"auto"}}>
             <div className="p-2 d-flex ">
                 <p className="font-bold ">Filters</p>
                 <a href="#" className="ms-auto text-decoration-none" onClick={() => {dispatch({type: "CLEAR"}); handleFiltersClear() } }>CLEAR</a>
@@ -155,6 +155,7 @@ export function Products(){
                 </div>
             </div>
         </div>
+        <div className="vl"></div>
         <div style={{width:"85%", padding: "20px"}}>
             <p className="font-bold">Showing All Products</p>
             <div className="product-container" style={{display: "grid"}}>{state.filteredProducts && state.filteredProducts.map((product) => {
