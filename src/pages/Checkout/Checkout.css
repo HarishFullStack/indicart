@@ -1,0 +1,8 @@
+.checkout-container{
+    min-width: 50rem;
+    display: flex;
+    align-items: flex-start;
+    grid-gap: 2rem;
+    gap: 2rem;
+    flex-direction: column;
+}

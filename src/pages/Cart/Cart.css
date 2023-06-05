@@ -3,6 +3,7 @@
     align-items: flex-start;
     grid-gap: 2rem;
     gap: 2rem;
+    justify-content: space-around;
 }
 
 .cart-main{

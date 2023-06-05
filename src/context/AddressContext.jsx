@@ -22,8 +22,18 @@ export function AddressProvider({children}){
         setAddresses([...addresses, address]);
     }
 
+    const updateAddress = (updateAddress) => {
+        const index = addresses.findIndex((address) => address.id === updateAddress.id);
+        addresses[index] = updateAddress;
+        setAddresses([...addresses]);
+    }
+
+    const deleteAddress = (id) => {
+        setAddresses( addresses.filter((address) => address.id !== id));
+    }
+
     return (
-        <AddressContext.Provider value={{addresses, addAddress, showAddressModal, setShowAddressModal}}>
+        <AddressContext.Provider value={{addresses, addAddress, updateAddress, deleteAddress, showAddressModal, setShowAddressModal}}>
             {children}
         </AddressContext.Provider>
     )

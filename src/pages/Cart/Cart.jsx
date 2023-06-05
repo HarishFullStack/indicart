@@ -4,8 +4,10 @@ import { CartContext } from "../../context/CartContext";
 import { WishlistContext } from "../../context/WishlistContext";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router";
 
 export function Cart(){
+    const navigate = useNavigate();
     
     const {cart, setCartCount, changeItemQuantity, removeFromCart} = useContext(CartContext);
     const {wishlist, setWishlistCount, addToWishlist, removeFromWishlist} = useContext(WishlistContext);
@@ -119,11 +121,13 @@ export function Cart(){
                                     </div>
                                 )
                             })}
+                        <hr className="hr"/>
+
                            <div className="mngmt_cart-price-item">
                             <p className="font-wt-semibold">Total price:</p>
                             <p className="font-wt-semibold">₹ {cart.reduce((acc, item) => acc + (item.price * item.quantity), 0)}</p>
                         </div>
-                        <button className="btn btn-primary background-primary brd-rd-semi-sq text-align-center">CHECKOUT</button>
+                        <button className="btn btn-primary background-primary brd-rd-semi-sq text-align-center" onClick={() => navigate('/checkout')}>CHECKOUT</button>
                     </div>
                 </div>}
             </div>
