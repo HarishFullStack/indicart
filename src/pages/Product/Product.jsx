@@ -93,7 +93,6 @@ export function Product(){
 
                                     <button className={`btn btn-primary mt-2 ${cart.find((item) => item._id === product._id) ? "btn-success" : ""}`} onClick={() => cart.find((item) => item._id === product._id) ? navigate("/cart") : handleAddToCart(product)}><i className="fas fa-shopping-cart"></i> <b>{cart.find((item) => item._id === product._id) ? "Go To Cart" : "Add To Cart"}</b></button>
                                 </div>
-                                {/* <div className="product-footer"><button className="btn btn-primary"><i className="fas fa-shopping-cart"></i> <b>Add To Cart</b></button></div> */}
                             </div>
                         </div>
                     </div>

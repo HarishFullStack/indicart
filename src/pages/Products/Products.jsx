@@ -17,14 +17,10 @@ export function Products(){
     const {state, dispatch, products, setProducts} = useContext(ProductsContext);
     const categories = useRef(false);
 
-
-    //const [products, setProducts] = useState([]);
-
     const getProducts = async () => {
         try{
             const response = await fetch("/api/products");
             const res = await response.json();
-            //const initialProducts = category ? res.products.filter((x) => x.categoryName.toLowerCase() === category.toLowerCase()) : res.products
             setProducts(res.products);
             dispatch({type: "INITIAL", value: res.products});
 
@@ -163,7 +159,6 @@ export function Products(){
                             <div className="card-img-container cursor-pointer">
                                 <img src={product.img} className="card-img-top product-img" alt={product.title} onClick={() => {navigate(`/product/${product._id}`)}}>
                                 </img>
-                                {/* <button className="card-img-tag-btn productlist-card-img-tag-btn-container" onClick={() => handleAddToWishlist(product)}><span className="material-icons productlist-card-img-tag-btn">favorite_border</span></button> */}
                             </div>
                             <div className="card-body">
                                 <div className="product-title">{product.title}</div>

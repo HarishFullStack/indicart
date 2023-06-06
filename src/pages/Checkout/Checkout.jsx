@@ -58,13 +58,6 @@ export function Checkout(){
                             <p className="font-wt-semibold">ORDER SUMMARY</p>
                         </div>
                         <hr className="hr"/>
-                            {/* {cart.map(item => {
-                                return(
-                                    <div key={item._id} className="mngmt_cart-price-item">
-                                        <p>{item.title} ({item.quantity})</p><p>₹ {item.quantity * item.price}</p>   
-                                    </div>
-                                )
-                            })} */}
                             <div className="mngmt_cart-price-item">
                                 <p className="">Price: ({cart.reduce((acc, item) => acc + (item.quantity), 0)} items)</p>
                                 <p className="">₹ {price.toFixed(2)}</p>

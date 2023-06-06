@@ -65,10 +65,6 @@ export function Cart(){
         }
     }
 
-    // const handleIncreamentQuantity = (id) => {
-    //     changeItemQuantity(id);
-    // }
-
     return (
         <main className="cart-main">
                 <p className="font-wt-semibold text-center">MY CART({cart.length})</p>
