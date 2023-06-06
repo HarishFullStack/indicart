@@ -27,7 +27,6 @@ export function Products(){
             if(category){
                 dispatch({type: "CLEAR"});
                 dispatch({type: "CATEGORIES", checked: true, value: category});
-                document.getElementById(`category-${category}`).checked = true;
             }
             setIsLoading(false);
         } catch(error) {
@@ -127,9 +126,9 @@ export function Products(){
             <div className="p-2">
                 <div><p className="font-bold">Categories</p></div>
                 <div className="filter-category">
-                    <div><input type="checkbox" id="category-fiction" ref={categories} onChange={(event) => dispatch({ type: "CATEGORIES", checked: event.target.checked, value: "fiction"})}/> <label htmlFor="category-fiction">Fiction</label></div>
-                    <div><input type="checkbox" id="category-non-fiction" ref={categories} onChange={(event) => dispatch({ type: "CATEGORIES", checked: event.target.checked, value: "non-fiction"})}/> <label htmlFor="category-non-fiction">Non Fiction</label></div>
-                    <div><input type="checkbox" id="category-horror" ref={categories} onChange={(event) => dispatch({ type: "CATEGORIES", checked: event.target.checked, value: "horror"})}/> <label htmlFor="horror ">Horror</label></div>
+                    <div><input type="checkbox" id="category-fiction" checked={state.categories.includes("fiction")} ref={categories} onChange={(event) => dispatch({ type: "CATEGORIES", checked: event.target.checked, value: "fiction"})}/> <label htmlFor="category-fiction">Fiction</label></div>
+                    <div><input type="checkbox" id="category-non-fiction" checked={state.categories.includes("non-fiction")}  ref={categories} onChange={(event) => dispatch({ type: "CATEGORIES", checked: event.target.checked, value: "non-fiction"})}/> <label htmlFor="category-non-fiction">Non Fiction</label></div>
+                    <div><input type="checkbox" id="category-horror" checked={state.categories.includes("horror")}  ref={categories} onChange={(event) => dispatch({ type: "CATEGORIES", checked: event.target.checked, value: "horror"})}/> <label htmlFor="horror ">Horror</label></div>
                 </div>
             </div>
 
