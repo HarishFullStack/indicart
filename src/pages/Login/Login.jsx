@@ -23,7 +23,7 @@ export function Login(){
             });
             const res = await response.json();
             if(res.errors){
-                toast.error('The email you entered is not Registered.', {position: toast.POSITION.BOTTOM_RIGHT});
+                toast.error(res.errors[0], {position: toast.POSITION.BOTTOM_RIGHT});
             }else{
                 localStorage.setItem("encodedToken", res.encodedToken);
                 localStorage.setItem("user", JSON.stringify(res.foundUser));
