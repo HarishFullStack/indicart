@@ -3,6 +3,8 @@ import "./Login.css";
 import { useContext, useState } from "react";
 import { ProductsContext } from "../../context/ProductsContext";
 import { AuthContext } from "../../context/AuthContext";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Login(){
 
@@ -13,18 +15,26 @@ export function Login(){
     const [password, setPassword] = useState("");
 
     const handleLogin = async (email, password) => {
-        const creds = {email, password};
-        const response = await fetch("/api/auth/login", {
-            method: "POST",
-            body: JSON.stringify(creds)
-        });
-        const res = await response.json();
-        localStorage.setItem("encodedToken", res.encodedToken);
-        localStorage.setItem("user", JSON.stringify(res.foundUser));
+        try{
+            const creds = {email, password};
+            const response = await fetch("/api/auth/login", {
+                method: "POST",
+                body: JSON.stringify(creds)
+            });
+            const res = await response.json();
+            if(res.errors){
+                toast.error('The email you entered is not Registered.', {position: toast.POSITION.BOTTOM_RIGHT});
+            }else{
+                localStorage.setItem("encodedToken", res.encodedToken);
+                localStorage.setItem("user", JSON.stringify(res.foundUser));
 
-        setIsLoggedIn(true);
-        setUser(res.foundUser);
-        navigate("/");
+                setIsLoggedIn(true);
+                setUser(res.foundUser);
+                navigate("/");
+            }
+        }
+        catch(error){
+        }
     }
 
     return (
